@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            color: white;
+            font-family: "Cairo";
+        }
+
+        body {
+            background-color: #25273e;
+        }
+
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="tel"] {
+            border: 2px rgb(255, 52, 52) solid;
+            border-radius: 20px;
+            background-color: transparent;
+            color: white;
+            outline: none;
+            padding: 10px;
+            width: 100%;
+            /* margin: 10px auto; */
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="password"]::placeholder,
+        input[type="email"]::placeholder,
+        input[type="tel"]::placeholder {
+            color: rgb(215, 215, 215);
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus {
+            border: none;
+            border-radius: 0;
+            border-bottom: 2px rgb(255, 52, 52) solid;
+        }
+
+
+        .nom-prenom input[type="text"] {
+            width: 49%;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .confirmer-container {
+            position: relative;
+        }
+
+        svg {
+            position: absolute;
+            top: 24px;
+            right: 15px;
+            cursor: pointer;
+            font-weight: 400;
+        }
+
+        .nom-prenom {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        input[type="submit"] {
+            background-color: #ee3a57;
+            border: #ff2549;
+            border-radius: 20px;
+            width: 100%;
+            padding: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff4867;
+        }
+
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            height: 75vh;
+            margin: 20px auto;
+        }
+
+        input {
+            margin: 10px 0;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+            width: 15px;
+            height: 15px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nom-prenom {
+                flex-direction: column;
+            }
+
+            .nom-prenom input[type="text"] {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .form-container {
+                width: 100%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title m-3">
+            <h1>Sign Up</h1>
+        </div>
+        <div class="form-container">
+            <div class="nom-prenom">
+                <input type="text" placeholder="Nom">
+                <input type="text" placeholder="Prenom">
+            </div>
+            <div class="email-container">
+                <input type="email" placeholder="Email">
+            </div>
+            <div class="telephone-container">
+                <input type="tel" placeholder="Telephone">
+            </div>
+            <div class="password-container">
+                <input type="password" placeholder="Mot de passe" id="password"> <i onclick="showHide('password')"
+                    class="fa-regular fa-eye"></i>
+            </div>
+            <div class="confirmer-container">
+                <input type="password" placeholder="Confirmer le mot de passe" id="confirmer-password"> <i
+                    onclick="showHide('confirmer-password')" class="fa-regular fa-eye"></i>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox"> j'accepte les conditions</label>
+            </div>
+            <div class="submit">
+                <input type="submit" value="Sign up">
+            </div>
+        </div>
+    </div>
+    <script>
+        function showHide(x) {
+            let input = document.getElementById(x);
+            if (input.type == 'password') {
+                input.type = "text";
+                document.querySelector('#' + x + ' + svg').classList.replace("fa-eye","fa-eye-slash");
+            }
+            else {
+                input.type = "password";
+                document.querySelector('#' + x + ' +svg').classList.replace("fa-eye-slash","fa-eye");
+            }
+        }
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/all.min.js"></script>
+
+</body>
+
+</html>
